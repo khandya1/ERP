@@ -1,6 +1,8 @@
 package com.example.ERP.controller;
 
 import com.example.ERP.beans.Course;
+import com.example.ERP.beans.Course_Schedule;
+import com.example.ERP.services.CourseScheduleServices;
 import com.example.ERP.services.CourseService;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -62,6 +64,24 @@ public class CourseController {
             return Response.noContent().build();
         }
         System.out.println(courses.size());
+        return Response.ok().entity(courses).build();
+    }
+
+    @POST
+    @Path("/checkDomain")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response checkC(String domain_id) throws URISyntaxException {
+        System.out.println(domain_id);
+        CourseService courseService= new CourseService();
+        ArrayList<Course> courses = new ArrayList<Course>();
+        String num = domain_id.replaceAll("[^0-9]","");
+        Integer id = Integer.parseInt(num);
+        courses  = courseService.checkDomain(id);
+        if(courses == null){
+            return Response.noContent().build();
+        }
+        System.out.println(id);
         return Response.ok().entity(courses).build();
     }
 

@@ -19,20 +19,22 @@
 <h2>TimeTable</h2>
 
 <br>
+<div id ="domainbox"></div>
+
+<button onclick="getvalueofradiolist1()" type="submit">Domain select</button>
+
 <div id= "box"></div>
 
-<button onclick="getvalueofradiolist()" type="submit">Try it</button>
+<button onclick="getvalueofradiolist()" type="submit">Course Select</button>
 
 <div id= "box1"></div>
 
 <script>
     let x;
+
     async function function1 () {
 
-        // e.preventDefault();
-        // e.stopPropagation();
-
-        let response = await fetch('http://localhost:8080/ERP_war_exploded/api/courses/display', {
+      let response = await fetch('http://localhost:8080/ERP_war_exploded/api/domain/display', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
@@ -41,6 +43,58 @@
         try {
             let result = await response.json();
             let html = "<table border='1|1' id ='t1'>";
+            //let x=JSON.stringify(result);
+            //console.log(x);
+            for (let i = 0; i < result.length; i++) {
+                console.log(result[i].name);
+                html += "<tr>";
+                x = result[i].domain_id;
+                console.log(x);
+                html += "<td><input type=radio id ='choiceLabel' name =domain value =" + x + "></td>";
+                html += "<td>" + result[i].domain_id + "</td>";
+                html += "<td>" + result[i].program + "</td>";
+                html += "<td>" + result[i].batch + "</td>";
+
+                html += "</tr>";
+
+            }
+            html += "</table>";
+
+            document.getElementById("domainbox").innerHTML = html;
+        }
+        catch(err) { }
+
+    }
+
+    async function getvalueofradiolist1() {
+
+        let radioButtonlist = document.getElementsByName("domain");
+        for (let x = 0; x < radioButtonlist.length; x++) {
+            if (radioButtonlist[x].checked) {
+                alert("Selected item Value "  + radioButtonlist[x].value);
+                document.getElementById("domainbox").style.display="none";
+                var p =radioButtonlist[x].value;
+                function2(radioButtonlist[x].value);
+            }
+        }
+
+    }
+
+
+    async function function2 (p) {
+
+       console.log(p);
+        let response = await fetch('http://localhost:8080/ERP_war_exploded/api/courses/checkDomain', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                domain_id: p }),
+        });
+        try {
+            let result = await response.json();
+            let html = "<table border='1|1' id ='t2'>";
             //let x=JSON.stringify(result);
             //console.log(x);
             for (let i = 0; i < result.length; i++) {
@@ -75,12 +129,6 @@
         {
 
         }
-        // let button = document.createElement('button');
-        // button.type = 'button';
-        // button.innerHTML = 'Press me';
-        // button.className = 'btn-styled';
-        //
-        // button.onclick = getvalueofradiolist;
 
     }
 
@@ -92,63 +140,16 @@
                 alert("Selected item Value "  + radioButtonlist[x].value);
                 document.getElementById("box").style.display="none";
                 var p =radioButtonlist[x].value;
-                function2(radioButtonlist[x].value);
+                function3(radioButtonlist[x].value);
             }
         }
 
     }
-
 
     async function function3(p) {
-        // e.preventDefault();
-        // e.stopPropagation();
-       // let y = document.querySelector('input[name ="course"]:checked').value;
+
+
         console.log(p);
-     //   console.log(y);
-        let r_courseSch = await fetch('http://localhost:8080/ERP_war_exploded/api/courseschedule/display', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-        });
-        try {
-            let result_cs = await r_courseSch.json();
-            let html1 = "<table border='1|1'>";
-            //let x=JSON.stringify(result);
-            //console.log(x);
-            for (let i = 0; i < result_cs.length; i++) {
-                console.log(result_cs[i].building);
-                html1 += "<tr>";
-                html1 += "<td>" + result_cs[i].id + "</td>";
-                html1 += "<td>" + result_cs[i].building + "</td>";
-                html1 += "<td>" + result_cs[i].room + "</td>";
-                html1 += "<td>" + result_cs[i].time + "</td>";
-                html1 += "<td>" + result_cs[i].day + "</td>";
-                html1 += "<td>" + result_cs[i].course.course_id + "</td>";
-                html1 += "<td>" + result_cs[i].course.name + "</td>";
-            //    html1 += "<td>" + result_cs[i].course.domain.domain_id + "</td>";
-
-                html1 += "</tr>";
-
-            }
-            html1 += "</table>";
-
-            document.getElementById("box1").innerHTML = html1;
-
-        } catch (err) {
-
-        }
-    }
-
-    async function function2(p) {
-
-        // let y = document.querySelector('input[name ="course"]:checked').value;
-        console.log(p);
-        //   console.log(y);
-        // p.addEventListener( 'submit', async (e) => {
-        //
-        //     e.preventDefault();
-        //     e.stopPropagation();
 
         let r_courseSch = await fetch('http://localhost:8080/ERP_war_exploded/api/courseschedule/checkCourse', {
             method: 'POST',
