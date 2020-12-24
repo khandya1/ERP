@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students - New</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/form-validation.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="py-5 text-center">
+        <img alt="" class="d-block mx-auto mb-4" height="72" src="assets/svg/bootstrap-solid.svg" width="72">
+        <h2>Academic ERP</h2>
+    </div>
+    <hr class="mb-4">
+
+    <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Student Details</h4>
+        <form class="needs-validation-courses" id="student-validation" novalidate>
+
+            <div class="col-md-6 mb-3">
+                <label for="roll_no">Roll Number</label>
+                <input class="form-control" id="roll_no" placeholder="" required type="text" value="">
+                <div class="invalid-feedback">
+                    Valid Roll Number is required.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="first_name">First Name</label>
+                <input class="form-control" id="first_name" placeholder="" required type="text" value="">
+                <div class="invalid-feedback">
+                    First name is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="last_name">Last Name</label>
+                <input class="form-control" id="last_name" placeholder="" required type="text">
+                <div class="invalid-feedback">
+                    Please enter last name.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email">email</label>
+                <input class="form-control" id="email" placeholder="" required type="text">
+                <div class="invalid-feedback">
+                    Please enter a Year.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="pic_path">Picture Path</label>
+                <input class="form-control" id="pic_path" placeholder="" required type="text">
+                <div class="invalid-feedback">
+                    Please enter Pic Path.
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="cgpa">CGPA</label>
+                <input class="form-control" id="cgpa" placeholder="" required type="number">
+                <div class="invalid-feedback">
+                    Please enter CGPA
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="total_credit">Total Credit</label>
+                <input class="form-control" id="total_credit" placeholder="" required type="number">
+                <div class="invalid-feedback">
+                    Please enter Total Credit
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="grad_year">Graduation Year</label>
+                <input class="form-control" id="grad_year" placeholder="" required type="number">
+                <div class="invalid-feedback">
+                    Please enter Grad Year
+                </div>
+            </div>
+
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to register</button>
+        </form>
+    </div>
+</div>
+<footer class="my-5 pt-5 text-muted text-center text-small">
+</footer>
+</body>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/NewStudent.js
+"></script>
+</html>

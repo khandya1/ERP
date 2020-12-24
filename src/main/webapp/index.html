@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIITB</title>
+    <link rel="stylesheet" href="assets/css/style1.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/mobile.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+
+</head>
+<body>
+
+<div id="page">
+    <div id="home-header">
+        <div><a href="index.html" class="logo"><img src="assets/images/iiitb_logo.png" alt="" style="border: 1px solid #ddd;border-radius: 4px; padding: 5px;width: 80px;"></a>
+            <div class="navbar-collapse" id="bs-example-navbar-collapse-1" >
+                <ul class="nav navbar-nav navbar-right" >
+                    <li><a data-scroll href="index.html" >HOME <span class="sr-only"(current)></span></a></li>
+                    <li><a data-scroll href="NewStudent.html" >Student Registration <span class="sr-only"(current)></span></a></li>
+                    <li><a data-scroll href="NewCourse.html" >Course Registration<span class="sr-only"(current)></span></a></li>
+                    <li><a data-scroll href="displaytt.html" >Course Schedule<span class="sr-only"(current)></span></a></li>
+                    <li ><a href="login.html" class="btn btn-info" role="button">Login</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </div>
+</div><!-- /.page -->
+
+
+<!-- /.home -->
+
+<!-- /.image slider-->
+<div id="body" class="home">
+    <div id="header" class="header">
+        <div class="w3-content w3-section" style="max-width:100%">
+            <img class="mySlides" src="assets/images/iiitB1.jpg" style="width:70%">
+            <img class="mySlides" src="assets/images/iiitB2.jpg" style="width:70%">
+        </div>
+
+        <script>
+            var myIndex = 0;
+            carousel();
+            function carousel() {
+                let i;
+                let x = document.getElementsByClassName("mySlides");
+                for (i = 0; i<x.length; i++) {
+                    x[i].style.display = "none";}
+
+                myIndex++;
+                if (myIndex > x.length) {myIndex = 1}
+                x[myIndex-1].style.display = "block";
+                setTimeout(carousel, 5000); // Change image every 2 seconds
+            }
+        </script>
+    </div>
+</div>
+
+
+<!-- /.about -->
+
+<div id="body-about" class="" >
+
+
+    <div class="container">
+        <div class="header">
+            <div><h1 style="color:#cc99ff;">About <strong class="color-primary" style="color:#7300e6">IIIT Bangalore</strong> </h1></div>
+        </div>
+        <div class="article">
+            <br><br>
+            <p>The International Institute of Information Technology Bangalore, a Deemed University, popularly known as IIITB, was established in 1999 with a vision to contribute to the IT world by focusing on education and research, entrepreneurship and innovation. The Institute is a registered not-for-profit society funded jointly by the Government of Karnataka and the IT industry.
+
+                Since its inception, IIITB, with its unique model of education, research, and industry interaction, has grown in stature to become an institution of considerable repute in academic as well as corporate circles. The Institute works in partnership with the corporate sector, while retaining the freedom of an academic institution. It is inspired by other renowned institutions, and also strives to emulate an academic culture that is on par with the best international institutions.
+
+            </p>
+        </div>
+    </div>
+
+    <br><br>
+
+    <!-- /.3columns-->
+    <div class="container">
+
+        <div class="row" style="overflow-x:auto; margin: 0 ;">
+
+            <div class="col-sm-6 col-md-4">
+                <h1 style="text-align:center ;color:#7300e6;">People</h1>
+                <p style="color:#cc99ff;"> <i class="fa fa-heart color-secondary" style=" font-size: 100px; margin-top: 20px;margin-left: 110px; margin-bottom: 20px;"></i>
+                </p>
+                <div class="caption">
+                    <p>IIITB prides itself in their students , faculty and staff. It is a close knit community and  believes in proving world class education and also contributing to current research and different projects.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-md-4">
+                <h1 style="text-align:center ;color:#7300e6;">Belief </h1>
+                <p style="color:#cc99ff"><i class="fa fa-group color-secondary " style=" ;font-size: 100px; margin-top: 20px;margin-left: 110px; margin-bottom: 20px;"></i>
+                </p>
+                <div class="caption">
+                    <p>We believe in non- discriminatory education provided with excellence. We also motivate freedom of thought and originality</p>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-md-4">
+                <h1 style="text-align:center ;color:#7300e6;">Technology </h1>
+                <p style="color:#cc99ff; text-align:center;"  > <i class="fa fa-flask color-secondary" style="font-size: 100px;   margin-top: 20px;margin-left: 110px; margin-bottom: 20px;"></i>
+                </p>
+                <div class="caption">
+                    <p>IIIT Bangalore has had close association with the industry, which plays a key role in its growth even as it draws on the institute for talent and joint research. IIIC aims to bridge the gap between the institute and the industry and offer real time exposure on projects and other developments. </p>
+                </div>
+            </div>
+        </div><!-- /.row-->
+
+    </div><!-- /.3columns end container-->
+
+    <br>
+
+
+
+
+
+
+
+
+    <!-- /.team behind-->
+
+    <br><br>
+    <div id="teambehind" >
+        <div class="header">
+            <div><h1 >Meet the  <strong class="color-primary" style="color:#cc99ff">team</strong> behind our work </h1>
+            </div>
+        </div>
+        <br><br><br>
+        <div class="container">
+            <div class="row" >
+
+                <div class="col-sm-6 col-md-4">
+                    <h4>Venu Akula<br></h4>
+                    <p>CEO & MANAGING DIRECTOR OF Oswal Corns </p>
+                    <p>DIRECTOR OF Oswal Corns NUTRIFOODS</p><br>
+                    <p>A visionary in the field of popcorn related cultivation and production in the nation. Venu, challenged the notion of imported corn and believed India could produce popping corn equal to the best. The result of this conviction was a specially developed seed which is 50% higher yielding than any other Indian variety.
+                        He is the first in the country to implement an organized method of production and processing popping corn. The objective of this effort is to improve the quality of the end product and make it viable as a business to farmers and retailers. He hopes his endeavour makes popcorn a healthier alternative to other snack foods available to the Indian consumer.
+                    </p>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <h4>Naveen Bairaveni <br></h4>
+                    <p>Head - Purchase
+                        Head - Bengaluru Operations</p><br>
+                    <p>With a decade of experience in the popcorn industry Naveen is our specialist in quality testing of seeds before purchase. He manages our network of farmers and traders on a regular basis, handling all sourcing, negotiations, and purchase decisions. He is also our go-to expert in designing popcorn machines.
+
+                    </p>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <h4>Srikanth Sunkey <br></h4>
+                    <p>HEAD - RETAIL</p><p>  </p><br>
+                    <p>An experienced professional who has successfully handled diverse roles in the fields of operations, vendor management and sales. Srikanth has been the driving force behind the branding of Cornella – our retail popcorn brand. At Oswal Corns he heads retail sales and distribution and is building our network across the country.
+                    </p>
+                </div>
+
+                <div class="col-sm-6 col-md-2">
+                    <h4 style="text-align:center;">Advisors <br></h4>
+                    <p style="text-align:center;">Praveen Rangu</p>
+                    <p> Sudheer Malyala</p>
+                </div>
+
+            </div><!-- /.row-->
+        </div><!-- /.team behind conatainer-->
+        <br><br><br>
+    </div>
+
+
+    <div class="image" id="nextimage">
+        <img src="images/Popcornlogo.jpg"  alt="">
+        <div class="text"><h1>Nutritious Snack</h1>
+
+        </div>
+    </div>
+
+
+    <br><br><br>
+    <div class="container" id="pfeatures">
+
+        <h1> Product Features</h1><br><br><br>
+        <div class="row" style="overflow-x:auto; margin: 0 ;">
+
+            <div class="col-sm-4 col-md-4">
+                <div class="cre-animate" style="right: 0px;position: relative; opacity: 1;transition-duration: 750ms;transition-timing-function: cubic-bezier(0.68,-.55,0.265,1.55);transition-delay: 100ms; " data-offset="80%" data-speed="750" data-easing="easeInOutBack" data-delay="100" data-animation="slide-in-from-right" >
+                    <div class="icon">
+                        <i class="fa fa-info-circle color-cream bg-secondry"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Features</h3>
+                        <p>Non-genetically modified seed, air cleaned, gravity separated, free from foreign matter, free from Alfratoxin, free from weevils, breakage less than 1/2%, current expansion ratio is 38/40</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-4 col-md-4">
+                <div class="cre-animate" style="right: 0px;position: relative; opacity: 1;transition-duration: 750ms;transition-timing-function: cubic-bezier(0.68,-.55,0.265,1.55);transition-delay: 100ms; " data-offset="80%" data-speed="750" data-easing="easeInOutBack" data-delay="100" data-animation="slide-in-from-right" >
+                    <div class="icon">
+                        <i class="fa fa-thumbs-up color-cream bg-secondry"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Advantages</h3>
+                        <p>Higher yield, Superior popping, Better appearance, Uniformity in all quality parameters, Duration of cultivation (time from sowing to harvesting) is consistent -110 days</p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-4 col-md-4">
+                <div class="cre-animate" style="right: 0px;position: relative; opacity: 1;transition-duration: 750ms;transition-timing-function: cubic-bezier(0.68,-.55,0.265,1.55);transition-delay: 100ms; " data-offset="80%" data-speed="750" data-easing="easeInOutBack" data-delay="100" data-animation="slide-in-from-right" >
+                    <div class="icon">
+                        <i class="fa fa-eye color-cream bg-secondry"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Appearance</h3>
+                        <p>
+                            Shape: Butterfly popcorn <br>
+                            Finish: Glossy <br>
+                            Colour: Yellow/Orange colour
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.row-->
+
+
+        <div class="row" style="overflow-x:auto; margin: 0 ;">
+            <div class="col-sm-4 col-md-4">
+                <div class="cre-animate" style="right: 0px;position: relative; opacity: 1;transition-duration: 750ms;transition-timing-function: cubic-bezier(0.68,-.55,0.265,1.55);transition-delay: 100ms; " data-offset="80%" data-speed="750" data-easing="easeInOutBack" data-delay="100" data-animation="slide-in-from-right" >
+                    <div class="icon">
+                        <i class="fa fa-smile-o color-cream bg-secondry"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Flavors</h3>
+                        <p>Salted, Butter Salt, Caramel, Tomato, Schezwan, Chat Masala</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="cre-animate" style="right: 0px;position: relative; opacity: 1;transition-duration: 750ms;transition-timing-function: cubic-bezier(0.68,-.55,0.265,1.55);transition-delay: 100ms; " data-offset="80%" data-speed="750" data-easing="easeInOutBack" data-delay="100" data-animation="slide-in-from-right" >
+                    <div class="icon">
+                        <i class="fa fa-tags color-cream bg-secondry"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Pack Sizes</h3>
+                        <p>Bags: 25 kgs, 20 kgs <br> Packs: 40 gms, 60 gms, 240 gms</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-4 col-md-4">
+                <div class="cre-animate" style="right: 0px;position: relative; opacity: 1;transition-duration: 750ms;transition-timing-function: cubic-bezier(0.68,-.5,0.265,1.55);transition-delay: 100ms; " data-offset="80%" data-speed="750" data-easing="easeInOutBack" data-delay="100" data-animation="slide-in-from-right" >
+                    <div class="icon">
+                        <i class="fa fa-star color-cream bg-secondry"></i>
+                    </div>
+                    <div class="content">
+                        <h3>Brands</h3>
+                        <p>Cornella, Indycorn, Movie Time, Max Pop, Unycorn, 3 Star, Fun Pop, Maruthi Corn, Just Pop, Lucky, Big Corn, Mini Corn, Taj, Jolly Time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="image" id="nextimage">
+        <img src="images/image3.jpg"  alt="">
+
+    </div>
+
+
+
+
+
+
+
+    <div class="container" id="oprocess">
+
+        <div class="article">
+            <br><br><br>
+            <p>Oswal Corns trains farmers to utilize innovative cultivation methods to improve the yield of the grain. That aside the cultivation process is supervised by experienced and specialized scientists. The processing and drying of popcorn uses state-of-the-art machinery and scientifically proven practices, ensuring quality. This quality is retained till the popcorn reaches the consumers, through industry standard storage and transportation facilities. </p>
+        </div>
+    </div>
+
+    <br><br>
+
+    <!-- /.3columnsthird-->
+    <div class="container" id="pdescribe">
+
+        <div class="row" style="overflow-x:auto; margin: 0 ;">
+
+            <div class="col-sm-6 col-md-4">
+                <p><i class="fa fa-leaf" aria-hidden="true"></i>
+                </p>
+                <h1 style="text-align:center ;color:#7300e6;">Cultivation</h1>
+                <div class="caption">
+                    <p>Cultivation sites: Karnataka and Andra Pradesh<br>Area under cultivation:<br>- Currently – 4500 acres<br>- By March 2015 – 5500 acres.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-md-4">
+
+                <p ><i class="fa fa-cogs" aria-hidden="true"></i>
+                </p>
+                <h1 style="text-align:center ;color: #7300e6;">Production </h1>
+                <div class="caption">
+                    <p>Processing plant location: Hyderabad<br>Current production capacity: 6500 metric tonnes per year<br>Daily processing capacity: 20 tonnes
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="col-sm-6 col-md-4">
+
+                <p style="color:#cc99ff; text-align:center;"  > <i class="fa fa-reorder color-secondary " aria-hidden="true"></i>
+                </p>
+                <h1 style="text-align:center ;color:#7300e6;">Storage </h1>
+                <div class="caption">
+                    <p>- Cold Storage<br>- Periodic fumigation of stocks and the entire plant<br>- Spraying<br>- Fogging<br>- Palettes stocking system<br>
+                    </p>
+                </div>
+            </div>
+            <br><br>
+
+        </div><!-- /.row-->
+    </div><!-- /.3columns end container second-->
+
+    <br>
+
+
+
+
+    <div class="image" id="nextimage">
+        <img src="images/popcorn4.jpg"  alt="">
+        <div class="text">
+        </div>
+    </div>
+
+
+
+
+    <div id="pnetwork"  style="background-color:#B08F6E;">
+        <br><br><br>
+        <div class="container" >
+            <div class="header">
+                <h1 > <strong class="color-primary">Network</strong> </h1>
+            </div>
+            <div class="article">
+                <p><h4>Oswal Corns manages a web of integrated clusters involved at various junctures of the business cycle.</h4></p>
+                <br><h1>2000</h1>
+                <h3>Farmers</h3>
+
+                <h1>100</h1>
+                <h3>Traders</h3>
+
+                <h1>40</h1>
+                <h3>Direct Clients</h3>
+
+                <h1>300</h1>
+                <h3>Indirect Clients</h3><br>
+                <p>
+                    Oswal Corns's business model revolves around production and sale of popcorn by improving the quality of the seed. This benefits the farmer with higher yield and better quality popcorn which in turn gives them more value per unit and also the volume produced increases. By using different kinds of cultivation engagements, such as buyback agreements, contract farming etc. Oswal Corns has promoted popcorn into a cash crop and therefore a viable alternative to traditional crops for the farmers.<br>
+
+                    Popping corn produced by Oswal Corns is supplied to numerous entities across India as well as exported. Apart from distributers and wholesale resellers Oswal Corns supplies popcorn to a number of multiplexes and theatres in the country.</p>
+            </div>
+        </div>
+
+        <br><br>
+
+
+
+
+
+
+        <div id="pcontact" class="footer"  style="background-color:#AC7519;">
+            <br><br><br>
+            <div class="container" >
+                <div class="header">
+                    <h1 > <strong class="color-primary">Contact Us</strong> </h1><br>
+                </div>
+                <div class="article">
+                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>Oswal Corns<br>
+                        16,ViabhavChambers
+                        7/1,Ushaganj,Chawani
+                        Indore
+                        <br><br><i class="fa fa-phone" aria-hidden="true"></i>
+                        0731-2703944 , +91-9926047759 , +91-9302101899<br>
+                        <i class="fa fa-envelope" aria-hidden="true"></i>
+                        e-mail : info@oswalcorns.com</p>
+                </div>
+            </div>
+
+            <br><br><br>
+        </div>
+
+        <div class="image" id="nextimage">
+            <img src="images/popcorn5.jpg"  alt="">
+            <div class="text">
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- /.body-->
+</div>
+</body>
+
+</html>
