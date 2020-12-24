@@ -7,6 +7,7 @@ import com.example.ERP.DAO.impl.DomainDAOImpl;
 import com.example.ERP.beans.Course_Schedule;
 import com.example.ERP.beans.Course;
 import com.example.ERP.beans.Domain;
+import com.example.ERP.beans.Student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,6 +132,76 @@ public class CreateDatabase {
         course7.setDomain(domainSet7);
         course8.setDomain(domainSet8);
 
+
+        Student stu1 = new Student("MT2020154","anshul","garg","anshulkumar.garg@iiitb.org","anshul_garg",8,10,2022);
+        Student stu2 = new Student("MT2020040","yashasvi","khandelwal","yashasvi.khandelwal@iiitb.org","yashasvi_khandelwal",9,10,2022);
+        Student stu3 = new Student("MT2020109","gourav","sachdev","gourav.sachdev@iiitb.org","gourav_sachdev",8,10,2022);
+        Student stu4 = new Student("MT2020004","Manu","Dandotiya","Manu.Dandotiya@iiitb.org","Manu_",7,10,2022);
+        Student stu5 = new Student("MT2020003","Hritik","Arora","Hritik.Arora@iiitb.org","Hritik_Arora",8,10,2022);
+        Student stu6 = new Student("MT2020213","a","a1","a.a1@iiitb.org","a_a1",9,10,2022);
+        Student stu7 = new Student("MT2020211","b","b1","b.b1@iiitb.org","b_b1",6,10,2021);
+        Student stu8 = new Student("MT2020343","c","c1","c.c1@iiitb.org","c_c1",5,10,2023);
+        Student stu9 = new Student("MT2020231","d","d1","d.d1@iiitb.org","d_d1",10,10,2021);
+        Student stu10 = new Student("MT2020010","e","e1","e.e1@iiitb.org","e_e1",8,10,2022);
+
+
+        List<Student> studentList1 = new ArrayList<Student>();
+        studentList1.add(stu1);
+        studentList1.add(stu2);
+        studentList1.add(stu4);
+        studentList1.add(stu6);
+        studentList1.add(stu10);
+        List<Student> studentList2 = new ArrayList<Student>();
+        studentList2.add(stu2);
+        studentList2.add(stu3);
+        studentList2.add(stu4);
+        studentList2.add(stu5);
+        studentList2.add(stu9);
+        List<Student> studentList3 = new ArrayList<Student>();
+        studentList3.add(stu1);
+        studentList3.add(stu3);
+        studentList3.add(stu4);
+        studentList3.add(stu5);
+        studentList3.add(stu8);
+        List<Student> studentList4 = new ArrayList<Student>();
+        studentList4.add(stu1);
+        studentList4.add(stu2);
+        studentList4.add(stu4);
+        studentList4.add(stu5);
+        studentList4.add(stu9);
+        studentList4.add(stu10);
+        List<Student> studentList5 = new ArrayList<Student>();
+        studentList5.add(stu1);
+        studentList5.add(stu3);
+        studentList5.add(stu6);
+        studentList5.add(stu7);
+        studentList5.add(stu8);
+        List<Student> studentList6 = new ArrayList<Student>();
+        studentList6.add(stu1);
+        studentList6.add(stu2);
+        studentList6.add(stu6);
+        studentList6.add(stu9);
+        List<Student> studentList7 = new ArrayList<Student>();
+        studentList7.add(stu3);
+        studentList7.add(stu5);
+        studentList7.add(stu7);
+        List<Student> studentList8 = new ArrayList<Student>();
+        studentList8.add(stu6);
+        studentList8.add(stu7);
+        studentList8.add(stu8);
+        studentList8.add(stu9);
+        studentList8.add(stu10);
+
+        course1.setStudent(studentList1);
+        course2.setStudent(studentList2);
+        course3.setStudent(studentList3);
+        course4.setStudent(studentList4);
+        course5.setStudent(studentList5);
+        course6.setStudent(studentList6);
+        course7.setStudent(studentList7);
+        course8.setStudent(studentList8);
+
+
         CourseDAO courseDAO = new CourseDAOImpl();
         courseDAO.addCourses( course1);
         courseDAO.addCourses( course2);
@@ -140,11 +211,8 @@ public class CreateDatabase {
         courseDAO.addCourses( course6);
         courseDAO.addCourses( course7);
         courseDAO.addCourses( course8);
-//        DomainDAO domainDAO = new DomainDAOImpl();
-//        domainDAO.addDomain(domain1);
-//        domainDAO.addDomain(domain2);
-//        domainDAO.addDomain(domain3);
-//        domainDAO.addDomain(domain4);
+
+
 
     }
 

@@ -54,8 +54,13 @@
 <div id= "box"></div>
 
 <button onclick="getvalueofradiolist()" type="submit">Course Select</button>
+<button onclick="getvalueofradiolist2()" type="submit">Student Select</button>
+
 
 <div id= "box1"></div>
+<div id  = "stu"></div>
+
+
 
 <script>
     let x;
@@ -214,8 +219,58 @@
         } catch (err) {
 
         }
- //   });
+
     }
+
+
+    async function getvalueofradiolist2() {
+
+        let radioButtonlist = document.getElementsByName("course");
+        for (let x = 0; x < radioButtonlist.length; x++) {
+            if (radioButtonlist[x].checked) {
+                alert("Selected item Value "  + radioButtonlist[x].value);
+                document.getElementById("box").style.display="none";
+                var p =radioButtonlist[x].value;
+                function4(radioButtonlist[x].value);
+            }
+        }
+
+    }
+
+
+    async function function4(p) {
+     let studentfetch = await fetch('http://localhost:8080/ERP_war_exploded/api/Student/getstudentlist', {
+         method: 'POST',
+         headers: {
+             'Content-Type': 'application/json;charset=utf-8'
+         },
+         body: JSON.stringify({
+             course_id: p
+         }),
+     });
+     try {
+         let result_cs = await studentfetch.json();
+         let html1 = "<table border='1|1'>";
+         //let x=JSON.stringify(result);
+         //console.log(x);
+         for (let i = 0; i < result_cs.length; i++) {
+             console.log(result_cs[i].first_name);
+             html1 += "<tr>";
+             html1 += "<td>" + result_cs[i].roll_no + "</td>";
+             html1 += "<td>" + result_cs[i].first_name + "</td>";
+             html1 += "<td>" + result_cs[i].last_name + "</td>";
+             html1 += "<td>" + result_cs[i].email + "</td>";
+             html1 += "<td>" + result_cs[i].pic_path + "</td>";
+             //html1 += "<td>" + result_cs[i].courses.course_id + "</td>";
+             //html1 += "<td>" + result_cs[i].courses.name + "</td>";
+             //    html1 += "<td>" + result_cs[i].course.domain.domain_id + "</td>";
+             html1 += "</tr>";
+         }
+         document.getElementById("stu").innerHTML = html1;
+     }
+     catch (err){}
+ }
+
 
 
 
@@ -223,7 +278,6 @@
         function1();
     }
     window.onload = start;
-
 
 
 

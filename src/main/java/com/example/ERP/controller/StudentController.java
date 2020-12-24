@@ -50,6 +50,25 @@ public class StudentController {
 
         return Response.ok(students).build();
     }
+
+    @POST
+    @Path("/getstudentlist")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response checkC(String course_id) throws URISyntaxException {
+        System.out.println(course_id);
+        StudentService studentService= new StudentService();
+        ArrayList<Student> students = new ArrayList<Student>();
+        String num = course_id.replaceAll("[^0-9]","");
+        Integer id = Integer.parseInt(num);
+        students  = studentService.checkStudent(id);
+        if(students == null){
+            return Response.noContent().build();
+        }
+        System.out.println(students.size());
+        return Response.ok().entity(students).build();
+    }
+
 }
 
 

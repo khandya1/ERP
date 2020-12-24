@@ -16,5 +16,9 @@ public class StudentService {
         System.out.println("a4");
         new StudentDAOimpl().addStudent(student);
     }
+
+    public ArrayList<Student> checkStudent(Integer id) {
+        return new StudentDAOimpl().checkStudent(id);
+    }
 //
 }

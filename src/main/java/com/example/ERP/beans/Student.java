@@ -1,6 +1,9 @@
 package com.example.ERP.beans;
+import javax.json.bind.annotation.JsonbTransient;
 import  javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table (name = "Student")
@@ -25,6 +28,9 @@ public class Student  implements Serializable {
     private Integer total_credit;
     @Column
     private Integer grad_year;
+
+    @ManyToMany(mappedBy = "student")
+    private List<Course> courses = new ArrayList<>();
 
     public Student() {
     }
@@ -112,4 +118,12 @@ public class Student  implements Serializable {
         this.grad_year = grad_year;
     }
 
+    @JsonbTransient
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
 }

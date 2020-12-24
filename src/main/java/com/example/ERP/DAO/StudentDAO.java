@@ -8,4 +8,6 @@ public interface StudentDAO {
      //  public abstract  void fetchStudent();
        public abstract void addStudent(Student student);
        public abstract ArrayList<Student> fetchTT(Student student);
+      public abstract ArrayList<Student> checkStudent(int course_id);
+
 }

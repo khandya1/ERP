@@ -42,6 +42,12 @@ public class Course implements Serializable {
                 inverseJoinColumns = {@JoinColumn(name = "domain_id")})
     private List<Domain> domain = new ArrayList<>();
 
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "course_student", joinColumns =  {@JoinColumn(name = "course_id")},
+            inverseJoinColumns = {@JoinColumn(name = "student_id")})
+    private List<Student> student = new ArrayList<>();
+
+
     public String getCourse_code() {
         return course_code;
     }
@@ -134,6 +140,15 @@ public class Course implements Serializable {
 
     public void setDomain(List<Domain> domain) {
         this.domain = domain;
+    }
+
+    @JsonbTransient
+    public List<Student> getStudent() {
+        return student;
+    }
+
+    public void setStudent(List<Student> student) {
+        this.student = student;
     }
 
     public Course(String course_code, String name, String description, Integer year, Integer term, Integer credits, Integer capacity, String faculty) {
