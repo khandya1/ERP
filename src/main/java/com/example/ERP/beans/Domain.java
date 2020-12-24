@@ -1,5 +1,6 @@
 package com.example.ERP.beans;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ public class Domain implements Serializable {
         this.batch = batch;
 
     }
-    @ManyToMany(mappedBy = "domains" , fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "domain" )
     private List<Course> courses = new ArrayList<>();
 
 
@@ -47,6 +48,7 @@ public class Domain implements Serializable {
         this.batch = batch;
     }
 
+    @JsonbTransient
     public List<Course> getCourses() {
         return courses;
     }

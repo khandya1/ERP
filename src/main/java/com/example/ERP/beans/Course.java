@@ -37,10 +37,10 @@ public class Course implements Serializable {
     @JoinColumn(name="course_id" )
     private List<Course_Schedule> course_schedules = new ArrayList<>();
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "course_domain", joinColumns = { @JoinColumn(name = "course_id")},
                 inverseJoinColumns = {@JoinColumn(name = "domain_id")})
-    private List<Domain> domains = new ArrayList<>();
+    private List<Domain> domain = new ArrayList<>();
 
     public String getCourse_code() {
         return course_code;
@@ -129,11 +129,11 @@ public class Course implements Serializable {
     }
     @JsonbTransient
     public List<Domain> getDomain() {
-        return domains;
+        return domain;
     }
 
     public void setDomain(List<Domain> domain) {
-        this.domains = domains;
+        this.domain = domain;
     }
 
     public Course(String course_code, String name, String description, Integer year, Integer term, Integer credits, Integer capacity, String faculty) {

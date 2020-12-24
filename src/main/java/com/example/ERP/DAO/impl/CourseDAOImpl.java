@@ -2,8 +2,6 @@ package com.example.ERP.DAO.impl;
 
 import com.example.ERP.DAO.CourseDAO;
 import com.example.ERP.beans.Course;
-import com.example.ERP.beans.Course_Domain;
-import com.example.ERP.beans.Course_Schedule;
 import com.example.ERP.beans.Domain;
 import com.example.ERP.util.SessionUtil;
 import org.hibernate.HibernateException;
@@ -59,16 +57,17 @@ public class CourseDAOImpl implements CourseDAO {
     public ArrayList<Course> checkDomain(int id) {
 
         System.out.println("inside fetch courses");
+        System.out.println(id);
         try(Session session = SessionUtil.getSession())
         {
             session.beginTransaction();
 
             Domain domain =new Domain();
             domain.setDomain_id(id);
-            Query query = session.createQuery("from Course c where c.domains =:domain");
+            Query query = session.createQuery("select c from Domain d join d.courses c where d.domain_id = :id");
             System.out.println("here");
-
-            query.setParameter("domain" , domain);
+            query.setInteger("id", id);
+          //  query.setParameter("id" , domain);
             List<Course> courses= query.list();
             for (Iterator iterator = courses.iterator(); iterator.hasNext(); ) {
                 Course course = (Course) iterator.next();

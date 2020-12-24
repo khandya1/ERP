@@ -15,7 +15,6 @@
         <mapping class="com.example.ERP.beans.Course" />
         <mapping class="com.example.ERP.beans.Student" />
         <mapping class="com.example.ERP.beans.Domain" />
-        <mapping class="com.example.ERP.beans.Course_Domain" />
         <mapping class="com.example.ERP.beans.Employee" />
         <mapping class="com.example.ERP.beans.Course_Schedule" />
 
