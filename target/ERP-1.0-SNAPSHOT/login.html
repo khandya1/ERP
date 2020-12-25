@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="assets/css/style1.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="css/mobile.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
@@ -80,12 +79,29 @@
                     password : document.getElementById('password').value,
                 })
             });
-            let result = await response;
-            if(result["status"]===200){
+            // let result = await response;
+            // if(result["status"]===200){
+            //     location.href = "displaytt.html";
+            // }else{
+            //     document.getElementById("login-alert").style.display = "block";
+            // }
+
+            try{
+                let result = await response.json();
+                document.getElementById("submit-button").style.display = "block";
+                document.getElementById("spinner-button").style.display = "none";
+                console.log(result);
+                sessionStorage.setItem('id', result["student_id"]);
                 location.href = "displaytt.html";
-            }else{
+               }catch (err){
+                document.getElementById("submit-button").style.display = "block";
+                document.getElementById("spinner-button").style.display = "none";
                 document.getElementById("login-alert").style.display = "block";
+
             }
+
+
+
 
         }});
 

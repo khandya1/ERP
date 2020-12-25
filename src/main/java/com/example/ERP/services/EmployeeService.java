@@ -15,7 +15,9 @@ public class EmployeeService {
         new EmployeeDAOimpl().addEmployee(employee);
     }
 
-    public ArrayList<Employee> checkemp(Employee employee) {
+    public Employee checkEmp(Employee employee) {
         return new EmployeeDAOimpl().checkEmp(employee);
     }
+
+
 }

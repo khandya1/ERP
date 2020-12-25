@@ -5,6 +5,7 @@ import com.example.ERP.DAO.EmployeeDAO;
 import com.example.ERP.util.SessionUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
 import java.util.ArrayList;
 
@@ -31,27 +32,24 @@ public class EmployeeDAOimpl implements EmployeeDAO {
 
 
         @Override
-        public ArrayList<Employee> checkEmp(Employee employee) {
+        public Employee checkEmp(Employee employee) {
 
-            ArrayList<Employee> employees = new ArrayList<Employee>();
+            Employee employee1 = new Employee();
             System.out.println("Checking Email");
             try(Session session = SessionUtil.getSession())
             {
 
-
                 session.beginTransaction();
-                employees = (ArrayList<Employee>) session.createQuery("FROM Employee where password=4 ").list();
-//              query.setParameter("cgpa", student.getCgpa());
-//                for (final Object fetch : query.list()) {
-//                    return ArrayList<Student> fetch;
-//                }
-                return employees;
+                Query query = session.createQuery("FROM Employee where email=:email and password=:password and department=:department");
+                query.setParameter("email", employee.getEmail());
+                query.setParameter("password", employee.getPassword());
+                query.setParameter("department","Admin");
+                employee1 = (Employee) query.list();
+                return employee1;
             } catch (HibernateException exception) {
                 System.out.print(exception.getLocalizedMessage());
                 return null;
             }
         }
-
-
 }
 

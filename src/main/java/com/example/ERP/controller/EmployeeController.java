@@ -36,16 +36,15 @@ public class EmployeeController {
 
     @POST
     @Path("/loginEmp")
-    // @Consumes(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response loginEmp(Employee employee) throws URISyntaxException {
         EmployeeService employeeService= new EmployeeService();
-        ArrayList<Employee> employees = new ArrayList<Employee>();
-        employees  = employeeService.checkemp(employee);
-        if(employees == null){
+         Employee emp  = employeeService.checkEmp(employee);
+        if(emp == null){
             return Response.noContent().build();
         }
 
-        return Response.ok(employees).build();
+        return Response.ok().entity(emp).build();
     }
 }
