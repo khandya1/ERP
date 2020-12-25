@@ -4,78 +4,20 @@
     table{
 
         border-collapse: collapse;
+        margin: 25px 0;
         font-size: 0.9em;
         font-family: sans-serif;
         min-width: 400px;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-        margin-left:auto;
-        margin-right:auto;
 
     }
-    td,tr {
+    thead,td,tr {
 
-        background-color: #513d66   ;
+        background-color: #cc99ff   ;
         color: #ffffff;
         text-align: left;
     }
-    body{
-        background-color: #ead6ff;
-        font-family: 'Roboto', sans-serif;
-    }
-    thead{
-        background-color: #0DB8DE;   ;
-        color: #ffffff;
-        text-align: left;
-
-    }
-    .raise:hover, .raise:focus {
-        box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-        transform: translateY(-0.25em);
-    }
-    .raise {
-        --color: #ffa260;
-        --hover: #076e85;
-    }
-    button {
-        color: var(--color);
-        transition: 0.25s;
-    }
-    button:hover, button:focus {
-        border-color: var(--hover);
-        color: #0ba5c7;
-    }
-    /*body {*/
-    /*    color: #fff;*/
-    /*    background: #17181c;*/
-    /*    font: 300 1em 'Fira Sans', sans-serif;*/
-    /*    justify-content: center;*/
-    /*    align-content: center;*/
-    /*    align-items: center;*/
-    /*    text-align: center;*/
-    /*    min-height: 100vh;*/
-    /*    display: flex;*/
-    /*}*/
-    button {
-        background: none;
-        border: 2px solid;
-        font: inherit;
-        line-height: 1;
-        margin: 0.5em;
-        padding: 1em 2em;
-    }
-    h1 {
-        font-weight: 400;
-    }
-    code {
-        color: #e4cb58;
-        font: inherit;
-    }
-
-
-
-
 </style>
-
 <title>TimeTable</title>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
@@ -90,7 +32,7 @@
 
 
 </head>
-<body style="background-color: #ead6ff">
+<body>
 
 
 <div id="page">
@@ -110,19 +52,21 @@
 </div><!-- /.page -->
 
 
-<h2 style="text-align: center">TimeTable</h2>
+<h2 style="align-content: center">TimeTable</h2>
 
 <br>
-<div id ="domainbox" class="table-responsive-lg" style="display: block"></div>
+<div id ="domainbox" class="table-responsive-lg"></div>
 
-<button onclick="getvalueofradiolist1()" type="submit"  id="domain_button" style="display: none ;margin-left:auto;margin-right:auto;" class="raise">Course</button>
-<br>
-<div id= "box" class="table-responsive-lg" style="display: block"></div>
-<button onclick="getvalueofradiolist()" type="submit" id="course_button" style="display: none ;margin-left:auto;margin-right:auto;" class="raise">Course Schedule</button>
-<br>
-<button onclick="getvalueofradiolist2()" type="submit" id="student_button" style="display: none ;margin-left:auto;margin-right:auto;" class="raise">Student List</button>
-<div id= "box1" class="table-responsive-lg" style="display: block"></div>
-<div id  = "stu" class="table-responsive-lg" style="display: block"></div>
+<button onclick="getvalueofradiolist1()" type="submit">Domain select</button>
+
+<div id= "box"></div>
+
+<button onclick="getvalueofradiolist()" type="submit">Course Select</button>
+<button onclick="getvalueofradiolist2()" type="submit">Student Select</button>
+
+
+<div id= "box1"></div>
+<div id  = "stu"></div>
 
 
 
@@ -131,27 +75,24 @@
 
     async function function1 () {
 
-        let response = await fetch('http://localhost:8080/ERP_war_exploded/api/domain/display', {
+      let response = await fetch('http://localhost:8080/ERP_war_exploded/api/domain/display', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
         });
-
         try {
             let result = await response.json();
-            x = result[0].domain_id;
-            console.log(x);
-            let html = "<table id ='t1' class='table table-striped' style='width: max-content'  size='100%'>";
+            let html = "<table id ='t1' class='table table-striped' style='width: max-content' , size='100%'>";
             //let x=JSON.stringify(result);
             //console.log(x);
-            html += "<thead style='background-color: #0DB8DE;  '>"
             html += "<tr>";
-            html += "<th style='background-color: #0DB8DE;  '> Select </th>";
-            html += "<th style='background-color: #0DB8DE;  '>Program</th>";
-            html += "<th style='background-color: #0DB8DE;  '>Batch</th>";
+            x = result[0].domain_id;
+            console.log(x);
+            html += "<thead> Select </thead>";
+            html += "<thead>" + "Program" + "</thead>";
+            html += "<thead>" + "Batch" + "</thead>";
             html += "</tr>";
-            html += "</thead>"
             for (let i = 0; i < result.length; i++) {
                 console.log(result[i].name);
                 html += "<tr>";
@@ -167,9 +108,6 @@
             html += "</table>";
 
             document.getElementById("domainbox").innerHTML = html;
-            document.getElementById("domain_button").style.display = "block";
-            document.getElementById("course_button").style.display = "none";
-            document.getElementById("student_button").style.display = "none";
         }
         catch(err) { }
 
@@ -183,7 +121,7 @@
                 alert("Selected item Value "  + radioButtonlist[x].value);
                 document.getElementById("domainbox").style.display="none";
                 let p =radioButtonlist[x].value;
-                function2(radioButtonlist[x].value);
+                 function2(radioButtonlist[x].value);
             }
         }
 
@@ -192,7 +130,7 @@
 
     async function function2 (p) {
 
-        console.log(p);
+       console.log(p);
         let response = await fetch('http://localhost:8080/ERP_war_exploded/api/courses/checkDomain', {
             method: 'POST',
             headers: {
@@ -201,40 +139,28 @@
             body: JSON.stringify({
                 domain_id: p }),
         });
-        document.getElementById("domainbox").style.display = "block";
-
         try {
             let result = await response.json();
-            let html = "<table  id ='t2' class='table table-striped' style='width: max-content'  size='100%'>";
+            let html = "<table border='1|1' id ='t2'>";
             //let x=JSON.stringify(result);
             //console.log(x);
-            html += "<thead style='background-color: #0DB8DE;  '>"
-            html += "<tr>";
-            html += "<th style='background-color: #0DB8DE;  '>Select</th>";
-            html += "<th style='background-color: #0DB8DE;  '>Course Code</th>";
-            html += "<th style='background-color: #0DB8DE;  '>Name</th>";
-            html += "<th style='background-color: #0DB8DE;  '>Description</th>";
-            html += "<th style='background-color: #0DB8DE;  '>Term</th>";
-            html += "<th style='background-color: #0DB8DE;  '>Year</th>";
-            html += "<th style='background-color: #0DB8DE;  '>Capacity</th>";
-            html += "<th style='background-color: #0DB8DE;  '>Credits</th>";
-            html += "<th style='background-color: #0DB8DE;  '>Faculty</th>";
-            html += "</tr>";
-            html += "</thead>"
             for (let i = 0; i < result.length; i++) {
                 console.log(result[i].name);
                 html += "<tr>";
                 x = result[i].course_id;
                 console.log(x);
                 html += "<td><input type=radio id ='choiceLabel' name =course value =" + x + "></td>";
+                html += "<td>" + result[i].course_id + "</td>";
+                html += "<td>" + result[i].capacity + "</td>";
                 html += "<td>" + result[i].course_code + "</td>";
-                html += "<td>" + result[i].name + "</td>";
+                html += "<td>" + result[i].credits + "</td>";
                 html += "<td>" + result[i].description + "</td>";
+                html += "<td>" + result[i].faculty + "</td>";
+                html += "<td>" + result[i].name + "</td>";
                 html += "<td>" + result[i].term + "</td>";
                 html += "<td>" + result[i].year + "</td>";
-                html += "<td>" + result[i].capacity + "</td>";
-                html += "<td>" + result[i].credits + "</td>";
-                html += "<td>" + result[i].faculty + "</td>";
+
+
                 html += "</tr>";
 
             }
@@ -242,9 +168,7 @@
 
             document.getElementById("box").innerHTML = html;
 
-            document.getElementById("domain_button").style.display = "none";
-            document.getElementById("course_button").style.display = "block";
-            document.getElementById("student_button").style.display = "block";
+            // document.addEventListener('DOMContentLoaded', function() {
 
         }
         catch
@@ -282,36 +206,21 @@
             body: JSON.stringify({
                 course_id: p }),
         });
-        document.getElementById("domainbox").style.display = "block";
-        document.getElementById("box").style.display = "block";
-
         try {
             let result_cs = await r_courseSch.json();
-            let html1 = "<table  class='table table-striped' style='width: max-content'  size='100%'>";
+            let html1 = "<table border='1|1'>";
             //let x=JSON.stringify(result);
             //console.log(x);
-
-            html1 += "<thead style='background-color: #0DB8DE;  '>"
-            html1 += "<tr>";
-            html1 += "<th style='background-color: #0DB8DE;  '>Course Code</th>";
-            html1 += "<th style='background-color: #0DB8DE;  '>Course Name</th>";
-            html1 += "<th style='background-color: #0DB8DE;  '>Building</th>";
-            html1 += "<th style='background-color: #0DB8DE;  '>Room</th>";
-            html1 += "<th style='background-color: #0DB8DE;  '>Time</th>";
-            html1 += "<th style='background-color: #0DB8DE;  '>Day</th>";
-            html1 += "</tr>";
-            html1 += "</thead>"
             for (let i = 0; i < result_cs.length; i++) {
                 console.log(result_cs[i].building);
                 html1 += "<tr>";
-                html1 += "<td>" + result_cs[i].course.course_code + "</td>";
-                html1 += "<td>" + result_cs[i].course.name + "</td>";
+                html1 += "<td>" + result_cs[i].id + "</td>";
                 html1 += "<td>" + result_cs[i].building + "</td>";
                 html1 += "<td>" + result_cs[i].room + "</td>";
                 html1 += "<td>" + result_cs[i].time + "</td>";
                 html1 += "<td>" + result_cs[i].day + "</td>";
-
-
+                html1 += "<td>" + result_cs[i].course.course_id + "</td>";
+                html1 += "<td>" + result_cs[i].course.name + "</td>";
                 //    html1 += "<td>" + result_cs[i].course.domain.domain_id + "</td>";
 
                 html1 += "</tr>";
@@ -320,36 +229,6 @@
             html1 += "</table>";
 
             document.getElementById("box1").innerHTML = html1;
-
-            document.getElementById("domain_button").style.display = "none";
-            document.getElementById("course_button").style.display = "none";
-            document.getElementById("student_button").style.display = "none";
-
-
-
-            let docDef = {
-                content: [
-                    {
-                        layout: 'lightHorizontalLines', // optional
-                        table: {
-                            // headers are automatically repeated if the table spans over multiple pages
-                            // you can declare how many rows should be treated as headers
-                            headerRows: 1,
-                            widths: [ '*', 'auto', 100, '*','auto' ],
-
-                            body: [
-                                [ "Course_Code ", 'Course_Name', 'Day', 'Time','Building' ],
-                                [ result_cs[0].course.course_code,result_cs[0].course.name, result_cs[0].day, result_cs[0].time, result_cs[0].building ],
-                                [ result_cs[1].course.course_code,result_cs[1].course.name, result_cs[1].day, result_cs[1].time, result_cs[1].building ]
-                            ]
-                        }
-                    }
-                ]
-
-            }
-            pdfMake.createPdf(docDef).download();
-
-
 
         } catch (err) {
 
@@ -374,54 +253,37 @@
 
 
     async function function4(p) {
-        let studentfetch = await fetch('http://localhost:8080/ERP_war_exploded/api/Student/getstudentlist', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-            body: JSON.stringify({
-                course_id: p
-            }),
-        });
-        document.getElementById("domainbox").style.display = "block";
-        document.getElementById("box").style.display = "block";
-        try {
-            let result_cs = await studentfetch.json();
-            let html1 = "<table border='1|1' class='table table-striped' style='width: max-content'  size='100%'>";
-            //let x=JSON.stringify(result);
-            //console.log(x);
-            html1 += "<thead>"
-            html1 += "<tr>";
-            html1 += "<th>Roll No</th>";
-            html1 += "<th>First Name</th>";
-            html1 += "<th>Last Name</th>";
-            html1 += "<th>Email</th>";
-            html1 += "<th>CGPA</th>";
-            html1 += "<th>Total Credit</th>";
-            html1 += "<th>Graduation year</th>";
-            html1 += "</tr>";
-            html1 += "</thead>"
-            for (let i = 0; i < result_cs.length; i++) {
-                console.log(result_cs[i].first_name);
-                html1 += "<tr>";
-                html1 += "<td>" + result_cs[i].roll_no + "</td>";
-                html1 += "<td>" + result_cs[i].first_name + "</td>";
-                html1 += "<td>" + result_cs[i].last_name + "</td>";
-                html1 += "<td>" + result_cs[i].email + "</td>";
-                html1 += "<td>" + result_cs[i].cgpa + "</td>";
-                html1 += "<td>" + result_cs[i].total_credit + "</td>";
-                html1 += "<td>" + result_cs[i].grad_year + "</td>";
-                html1 += "</tr>";
-            }
-            document.getElementById("stu").innerHTML = html1;
-
-            document.getElementById("domain_button").style.display = "none";
-            document.getElementById("course_button").style.display = "none";
-            document.getElementById("student_button").style.display = "none";
-
-        }
-        catch (err){}
-    }
+     let studentfetch = await fetch('http://localhost:8080/ERP_war_exploded/api/Student/getstudentlist', {
+         method: 'POST',
+         headers: {
+             'Content-Type': 'application/json;charset=utf-8'
+         },
+         body: JSON.stringify({
+             course_id: p
+         }),
+     });
+     try {
+         let result_cs = await studentfetch.json();
+         let html1 = "<table border='1|1'>";
+         //let x=JSON.stringify(result);
+         //console.log(x);
+         for (let i = 0; i < result_cs.length; i++) {
+             console.log(result_cs[i].first_name);
+             html1 += "<tr>";
+             html1 += "<td>" + result_cs[i].roll_no + "</td>";
+             html1 += "<td>" + result_cs[i].first_name + "</td>";
+             html1 += "<td>" + result_cs[i].last_name + "</td>";
+             html1 += "<td>" + result_cs[i].email + "</td>";
+             html1 += "<td>" + result_cs[i].pic_path + "</td>";
+             //html1 += "<td>" + result_cs[i].courses.course_id + "</td>";
+             //html1 += "<td>" + result_cs[i].courses.name + "</td>";
+             //    html1 += "<td>" + result_cs[i].course.domain.domain_id + "</td>";
+             html1 += "</tr>";
+         }
+         document.getElementById("stu").innerHTML = html1;
+     }
+     catch (err){}
+ }
 
 
 
@@ -433,7 +295,7 @@
 
 
 
-    //
+
     // let docDef = {
     //     content: [
     //         {
@@ -445,7 +307,7 @@
     //                 widths: [ '*', 'auto', 100, '*' ],
     //
     //                 body: [
-    //                     [ "Monday ", 'Tuesday', 'Wednesday', 'Thursday' ],
+    //                     [ "result[0].name", 'Second', 'Third', 'The last one' ],
     //                     [ 'Value 1', 'Value 2', 'Value 3', 'Value 4' ],
     //                     [ { text: 'Bold value', bold: true }, 'Val 2', 'Val 3', 'Val 4' ]
     //                 ]
