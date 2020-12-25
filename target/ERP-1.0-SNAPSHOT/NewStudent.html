@@ -2,22 +2,147 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Students - New</title>
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/css/form-validation.css" rel="stylesheet">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Student</title>
+    <title>New Employee</title>
     <link rel="stylesheet" href="assets/css/style1.css" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
 
+
 </head>
+<style>
+    body {
+        background: #ead6ff;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .login-box {
+        margin-top: 75px;
+        height: auto;
+        background: #513d66;
+        text-align: center;
+        box-shadow: 0 3px 6px #8e6bb2, 0 3px 6px #7a5b99;
+    }
+
+    .login-key {
+        height: 100px;
+        font-size: 80px;
+        line-height: 100px;
+        background: -webkit-linear-gradient(#27EF9F, #0DB8DE);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .login-title {
+        margin-top: 15px;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 2px;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #ECF0F5;
+    }
+
+    .login-form {
+        margin-top: 25px;
+        text-align: left;
+    }
+
+    input[type=text] {
+        background-color: #513d66;
+        border: none;
+        border-bottom: 2px solid #0DB8DE;
+        border-top: 0px;
+        border-radius: 0px;
+        font-weight: bold;
+        outline: 0;
+        margin-bottom: 20px;
+        padding-left: 0px;
+        color: #ECF0F5;
+    }
+
+    input[type=password] {
+        background-color: #513d66;
+        border: none;
+        border-bottom: 2px solid #0DB8DE;
+        border-top: 0px;
+        border-radius: 0px;
+        font-weight: bold;
+        outline: 0;
+        padding-left: 0px;
+        margin-bottom: 20px;
+        color: #ECF0F5;
+    }
+
+    .form-group {
+        margin-bottom: 40px;
+        outline: 0px;
+    }
+
+    .form-control:focus {
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-bottom: 2px solid #0DB8DE;
+        outline: 0;
+        background-color: #513d66;
+        color: #ECF0F5;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 0;
+    }
+
+    label {
+        margin-bottom: 0px;
+    }
+
+    .form-control-label {
+        font-size: 10px;
+        color: #efe0ff;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .btn-outline-primary {
+        border-color: #0DB8DE;
+        color: #0DB8DE;
+        border-radius: 1px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        box-shadow: 0 1px 3px #7a5b99, 0 1px 2px #664c7f;
+    }
+
+    .btn-outline-primary:hover {
+        background-color: #0DB8DE;
+        right: 0px;
+    }
+
+    .login-btm {
+        float: left;
+    }
+
+    .login-button {
+        padding-right: 0px;
+        text-align: right;
+        margin-bottom: 25px;
+    }
+
+    .login-text {
+        text-align: left;
+        padding-left: 0px;
+        color: #A2A4A4;
+    }
+
+    .loginbttm {
+        padding: 0px;
+    }
+</style>
 <body>
-
-
+<form>
     <div id="page">
         <div id="home-header">
             <div><a href="index.html" class="logo"><img src="assets/images/iiitb_logo.png" alt="" style="border: 1px solid #ddd;border-radius: 4px; padding: 5px;width: 80px;"></a>
@@ -33,75 +158,70 @@
             </div>
         </div>
     </div><!-- /.page -->
+</form>
 
-    <div class="container">
-    <div class="col-md-8 order-md-1">
-        <h4 class="mb-3">Student Details</h4>
-        <form class="needs-validation-courses" id="student-validation" novalidate>
+    <form class="needs-validation-courses" method="post" id="student-validation" novalidate>
+        <div class="row">
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+                <div class="col-lg-12 login-key">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 login-title">
+                    Register Student
+                </div>
 
-            <div class="col-md-6 mb-3">
-                <label for="roll_no">Roll Number</label>
-                <input class="form-control" id="roll_no" placeholder="" required type="text" value="">
-                <div class="invalid-feedback">
-                    Valid Roll Number is required.
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form>
+                            <div class="form-group">
+                                <label class="form-control-label" for="roll_no">ROLL NUMBER</label>
+                                <input type="text" class="form-control" id="roll_no" placeholder="" required type="text" value="">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label"for="first_name">First Name</label>
+                                <input type="text" class="form-control" id="first_name" placeholder="" required type="text" value="">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label"for="last_name">Last Name</label>
+                                <input type="text" class="form-control" id="last_name" placeholder="" required type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label"for="email">E-Mail</label>
+                                <input type="text" class="form-control" id="email" placeholder="" required type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label"for="pic_path">Picture Path</label>
+                                <input type="text" class="form-control" id="pic_path" placeholder="" required type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label"for="cgpa">CGPA</label>
+                                <input type="password" class="form-control" id="cgpa" placeholder="" required type="number">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label"for="total_credit">Total Credit</label>
+                                <input type="password" class="form-control" id="total_credit" placeholder="" required type="number">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label"for="grad_year">Graduation Year</label>
+                                <input type="password" class="form-control" id="grad_year" placeholder="" required type="number">
+                            </div>
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                    <!-- Error Message -->
+                                </div>
+                                <div class="col-lg-6 login-btm login-button">
+                                    <button type="submit" class="btn btn-outline-primary"><a href="index.html"> LOGIN</a></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <div class="col-lg-3 col-md-2"></div>
             </div>
-            <div class="col-md-6 mb-3">
-                <label for="first_name">First Name</label>
-                <input class="form-control" id="first_name" placeholder="" required type="text" value="">
-                <div class="invalid-feedback">
-                    First name is required.
-                </div>
-            </div>
+        </div>
+    </form>
 
-            <div class="mb-3">
-                <label for="last_name">Last Name</label>
-                <input class="form-control" id="last_name" placeholder="" required type="text">
-                <div class="invalid-feedback">
-                    Please enter last name.
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="email">email</label>
-                <input class="form-control" id="email" placeholder="" required type="text">
-                <div class="invalid-feedback">
-                    Please enter a Year.
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="pic_path">Picture Path</label>
-                <input class="form-control" id="pic_path" placeholder="" required type="text">
-                <div class="invalid-feedback">
-                    Please enter Pic Path.
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="cgpa">CGPA</label>
-                <input class="form-control" id="cgpa" placeholder="" required type="number">
-                <div class="invalid-feedback">
-                    Please enter CGPA
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="total_credit">Total Credit</label>
-                <input class="form-control" id="total_credit" placeholder="" required type="number">
-                <div class="invalid-feedback">
-                    Please enter Total Credit
-                </div>
-            </div>
-            <div class="mb-3">
-                <label for="grad_year">Graduation Year</label>
-                <input class="form-control" id="grad_year" placeholder="" required type="number">
-                <div class="invalid-feedback">
-                    Please enter Grad Year
-                </div>
-            </div>
-
-            <hr class="mb-4">
-            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to register</button>
-        </form>
-    </div>
-</div>
 <footer class="my-5 pt-5 text-muted text-center text-small">
 </footer>
 </body>
