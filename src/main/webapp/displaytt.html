@@ -28,6 +28,48 @@
         text-align: left;
 
     }
+    .raise:hover, .raise:focus {
+        box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+        transform: translateY(-0.25em);
+    }
+    .raise {
+        --color: #ffa260;
+        --hover: #076e85;
+    }
+    button {
+        color: var(--color);
+        transition: 0.25s;
+    }
+    button:hover, button:focus {
+        border-color: var(--hover);
+        color: #0ba5c7;
+    }
+    /*body {*/
+    /*    color: #fff;*/
+    /*    background: #17181c;*/
+    /*    font: 300 1em 'Fira Sans', sans-serif;*/
+    /*    justify-content: center;*/
+    /*    align-content: center;*/
+    /*    align-items: center;*/
+    /*    text-align: center;*/
+    /*    min-height: 100vh;*/
+    /*    display: flex;*/
+    /*}*/
+    button {
+        background: none;
+        border: 2px solid;
+        font: inherit;
+        line-height: 1;
+        margin: 0.5em;
+        padding: 1em 2em;
+    }
+    h1 {
+        font-weight: 400;
+    }
+    code {
+        color: #e4cb58;
+        font: inherit;
+    }
 
 
 
@@ -68,16 +110,17 @@
 </div><!-- /.page -->
 
 
-<h2 style="align-content: center">TimeTable</h2>
+<h2 style="text-align: center">TimeTable</h2>
 
 <br>
 <div id ="domainbox" class="table-responsive-lg" style="display: block"></div>
 
-<button onclick="getvalueofradiolist1()" type="submit"  id="domain_button" style="display: none" class="btn-pill">Course</button>
-
+<button onclick="getvalueofradiolist1()" type="submit"  id="domain_button" style="display: none ;margin-left:auto;margin-right:auto;" class="raise">Course</button>
+<br>
 <div id= "box" class="table-responsive-lg" style="display: block"></div>
-<button onclick="getvalueofradiolist()" type="submit" id="course_button" style="display: none" class="btn-pill">Course Schedule</button>
-<button onclick="getvalueofradiolist2()" type="submit" id="student_button" style="display: none" class="btn-pill">Student List</button>
+<button onclick="getvalueofradiolist()" type="submit" id="course_button" style="display: none ;margin-left:auto;margin-right:auto;" class="raise">Course Schedule</button>
+<br>
+<button onclick="getvalueofradiolist2()" type="submit" id="student_button" style="display: none ;margin-left:auto;margin-right:auto;" class="raise">Student List</button>
 <div id= "box1" class="table-responsive-lg" style="display: block"></div>
 <div id  = "stu" class="table-responsive-lg" style="display: block"></div>
 
@@ -200,8 +243,8 @@
             document.getElementById("box").innerHTML = html;
 
             document.getElementById("domain_button").style.display = "none";
-            document.getElementById("course_button").style.display = "inline";
-            document.getElementById("student_button").style.display = "inline";
+            document.getElementById("course_button").style.display = "block";
+            document.getElementById("student_button").style.display = "block";
 
         }
         catch
@@ -250,7 +293,7 @@
 
             html1 += "<thead style='background-color: #0DB8DE;  '>"
             html1 += "<tr>";
-           html1 += "<th style='background-color: #0DB8DE;  '>Course Code</th>";
+            html1 += "<th style='background-color: #0DB8DE;  '>Course Code</th>";
             html1 += "<th style='background-color: #0DB8DE;  '>Course Name</th>";
             html1 += "<th style='background-color: #0DB8DE;  '>Building</th>";
             html1 += "<th style='background-color: #0DB8DE;  '>Room</th>";
@@ -261,7 +304,6 @@
             for (let i = 0; i < result_cs.length; i++) {
                 console.log(result_cs[i].building);
                 html1 += "<tr>";
-                html1 += "<td>" + result_cs[i].id + "</td>";
                 html1 += "<td>" + result_cs[i].course.course_code + "</td>";
                 html1 += "<td>" + result_cs[i].course.name + "</td>";
                 html1 += "<td>" + result_cs[i].building + "</td>";
